@@ -4,13 +4,15 @@
     .buy-open-orders {
         display: flex;
         flex-direction: row;
-        justify-content: space-evenly;
+        justify-content: space-around;
         align-items: flex-start;
+        text-align: left;
+        min-width: 20%;
     }
     .orderbook__content {
         border: 1px solid #37527B;
         padding: 1rem;
-        height: calc(100vh - 4rem);
+        height: calc(50vh - 4rem);
     }
     .orderbook__header {
         border: 1px solid #37527B;
@@ -18,18 +20,25 @@
         margin: 0.5rem auto;
     }
     .sell-open-orders {
+        height: 2rem;
         .orderbook__content--tab {
+            width: 0;
             &:first-child {
                 color: #C33737;
             }
         }
     }
     .buy-open-orders {
+        height: 2rem;
         .orderbook__content--tab {
+            width: 0;
             &:first-child {
                 color: #56B351;
             }
         }
+    }
+    .selling-orders {
+        max-height: 20rem;
     }
 }
 

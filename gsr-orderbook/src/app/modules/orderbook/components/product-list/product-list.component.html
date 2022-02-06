@@ -1,0 +1,13 @@
+<nb-select placeholder="Products" *ngIf="products" class="product-list__select" [(ngModel)]="selectedItem">
+    <nb-option [value]="product.id" *ngFor="let product of products">
+        <span class="details">
+            {{ product.base_currency }}
+        </span> |
+
+        <span class="sub-details">
+            {{ product.quote_currency }} - 
+            (<span class="min"> {{ product.base_min_size }} </span> /
+        <span class="max"> {{ product.base_max_size }} </span> )
+        </span>
+    </nb-option>
+</nb-select>

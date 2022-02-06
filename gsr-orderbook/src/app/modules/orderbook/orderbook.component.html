@@ -1,19 +1,24 @@
 <div class="orderbook">
+    <div class="orderbook__products">
+        <gsr-product-list [products]="products"></gsr-product-list>
+    </div>
     <div class="orderbook__header">
         <div class="orderbook__header--tab">PRICE</div>
         <div class="orderbook__header--tab">AMOUNT (BTC)</div>
         <div class="orderbook__header--tab">TOTAL (BTC)</div>
     </div>
     <div class="orderbook__content">
-        <div class="sell-open-orders">
-            <div class="orderbook__content--tab">0.00</div>
-            <div class="orderbook__content--tab">0.00</div>
-            <div class="orderbook__content--tab">0.00</div>
+        <div class="selling-orders">
+            <div class="sell-open-orders" *ngFor="let sellingOrder of sellingOrders">
+                <div class="orderbook__content--tab sell">{{ sellingOrder.price }}</div>
+                <div class="orderbook__content--tab">{{ sellingOrder.size }}</div>
+                <div class="orderbook__content--tab">{{ sellingOrder.total }}</div>
+            </div>
         </div>
-        <div class="buy-open-orders">
-            <div class="orderbook__content--tab">0.00</div>
-            <div class="orderbook__content--tab">0.00</div>
-            <div class="orderbook__content--tab">0.00</div>
+        <div class="buy-open-orders" *ngFor="let buyingOrder of buyingOrders">
+            <div class="orderbook__content--tab buy">{{ buyingOrder.price }}</div>
+            <div class="orderbook__content--tab"> {{ buyingOrder.size }} </div>
+            <div class="orderbook__content--tab"> {{ buyingOrder.total }} </div>
         </div>
     </div>
 
