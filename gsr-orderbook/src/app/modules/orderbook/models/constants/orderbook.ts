@@ -9,3 +9,16 @@ export const CONNECTION_TYPE = {
   LEVEL2: 'l2update',
   STATUS: 'status'
 }
+
+export const PRODUCT = {
+  default: 'ETH-USD',
+  properties: {
+    sortedBy: {
+      id: 'id'
+    }  
+  }
+}
+
+export const ORDERBOOK_DATA = {
+  default: 'none',
+}

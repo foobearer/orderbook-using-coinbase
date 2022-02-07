@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { webSocket, WebSocketSubject } from 'rxjs/webSocket';
 import { WEBSOCKET } from '../models/constants/url-paths';
-import { ProductsAndCurrencies } from '../models/interfaces/orderbook';
 
 
 @Injectable({

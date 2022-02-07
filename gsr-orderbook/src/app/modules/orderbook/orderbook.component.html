@@ -1,25 +1,32 @@
 <div class="orderbook">
     <div class="orderbook__products">
-        <gsr-product-list [products]="products"></gsr-product-list>
+        <gsr-product-list [products]="products" (product)="onProductSelected($event)"></gsr-product-list>
     </div>
     <div class="orderbook__header">
         <div class="orderbook__header--tab">PRICE</div>
-        <div class="orderbook__header--tab">AMOUNT (BTC)</div>
-        <div class="orderbook__header--tab">TOTAL (BTC)</div>
+        <div class="orderbook__header--tab">AMOUNT <span class="product"> ({{product}}) </span></div>
+        <div class="orderbook__header--tab">TOTAL <span class="product"> ({{product}}) </span> </div>
     </div>
     <div class="orderbook__content">
         <div class="selling-orders">
+            <div class="selling-orders--header sell"> SELL OPEN ORDERS </div>
             <div class="sell-open-orders" *ngFor="let sellingOrder of sellingOrders">
                 <div class="orderbook__content--tab sell">{{ sellingOrder.price }}</div>
                 <div class="orderbook__content--tab">{{ sellingOrder.size }}</div>
                 <div class="orderbook__content--tab">{{ sellingOrder.total }}</div>
             </div>
         </div>
-        <div class="buy-open-orders" *ngFor="let buyingOrder of buyingOrders">
-            <div class="orderbook__content--tab buy">{{ buyingOrder.price }}</div>
-            <div class="orderbook__content--tab"> {{ buyingOrder.size }} </div>
-            <div class="orderbook__content--tab"> {{ buyingOrder.total }} </div>
+        <div class="buying-orders">
+            <div class="buying-orders--header buy"> BUY OPEN ORDERS --
+                <span class="comparing-orders"> ({{buyingOrders[0]?.price}}) </span>
+                <nb-icon icon="arrow-upward-outline"></nb-icon>
+                <span class="comparing-orders"> ({{buyingOrders[1]?.price}}) </span>
+            </div>
+            <div class="buy-open-orders" *ngFor="let buyingOrder of buyingOrders">
+                <div class="orderbook__content--tab buy">{{ buyingOrder.price }}</div>
+                <div class="orderbook__content--tab"> {{ buyingOrder.size }} </div>
+                <div class="orderbook__content--tab"> {{ buyingOrder.total }} </div>
+            </div>
         </div>
     </div>
-
 </div>

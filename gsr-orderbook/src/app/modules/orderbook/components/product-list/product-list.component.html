@@ -1,4 +1,4 @@
-<nb-select placeholder="Products" *ngIf="products" class="product-list__select" [(ngModel)]="selectedItem">
+<nb-select placeholder="Select Product" *ngIf="products" class="product-list__select" (selectedChange)="emitSelectedProduct($event)">
     <nb-option [value]="product.id" *ngFor="let product of products">
         <span class="details">
             {{ product.base_currency }}

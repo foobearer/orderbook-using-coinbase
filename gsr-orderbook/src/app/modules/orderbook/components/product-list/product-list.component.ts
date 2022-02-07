@@ -8,13 +8,17 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class ProductListComponent implements OnInit {
   @Input() products: Array<any>;
-  @Output() selectedProduct: EventEmitter<any> = new EventEmitter<any>();
+  @Output() product: EventEmitter<any> = new EventEmitter<any>();
 
-  selectedItem;
-  
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  // function that sends out selected product from the component
+  emitSelectedProduct(product) {
+    console.log(product);
+    this.product.emit(product);
   }
 
 }

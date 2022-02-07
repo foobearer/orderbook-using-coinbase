@@ -4,9 +4,8 @@ import { CommonModule } from '@angular/common';
 import { OrderbookRoutingModule } from './orderbook-routing.module';
 import { OrderbookComponent } from './orderbook.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
-import { NbSelectModule } from '@nebular/theme';
+import { NbIconModule, NbSelectModule } from '@nebular/theme';
 import { FormsModule } from '@angular/forms';
-
 
 @NgModule({
   declarations: [OrderbookComponent, ProductListComponent],
@@ -14,7 +13,8 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     NbSelectModule,
     OrderbookRoutingModule,
-    FormsModule
+    FormsModule,
+    NbIconModule
   ]
 })
 export class OrderbookModule { }

@@ -1,23 +1,34 @@
+%header_properties {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+    text-align: left;
+    min-width: 20%;
+}
+
+%content_default {
+    border: 1px solid #37527B;
+    padding: 1rem;
+}
+
 .orderbook {
-    .orderbook__header,
+    @at-root #{&}__header {
+        @extend %header_properties;
+    }
     .sell-open-orders,
     .buy-open-orders {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        align-items: flex-start;
-        text-align: left;
-        min-width: 20%;
+        @extend %header_properties;
     }
-    .orderbook__content {
-        border: 1px solid #37527B;
-        padding: 1rem;
-        height: calc(50vh - 4rem);
+    @at-root #{&}__content {
+        @extend %content_default;
     }
-    .orderbook__header {
-        border: 1px solid #37527B;
-        padding: 1rem;
+    @at-root #{&}__header {
+        @extend %content_default;
         margin: 0.5rem auto;
+        @at-root #{&}--tab {
+            margin-left: 6rem;
+        }
     }
     .sell-open-orders {
         height: 2rem;
@@ -28,6 +39,10 @@
             }
         }
     }
+    .selling-orders--header {
+        border-bottom: 1px solid #C33737;
+        margin-bottom: 1rem;
+    }
     .buy-open-orders {
         height: 2rem;
         .orderbook__content--tab {
@@ -37,8 +52,16 @@
             }
         }
     }
-    .selling-orders {
-        max-height: 20rem;
+    .buying-orders--header {
+        border-bottom: 1px solid #56B351;
+        margin-bottom: 1rem;
+    }
+    .comparing-orders {
+        &:first-child {
+            font-weight: 700;
+            color: #09bd00;
+        }
+        color: #FFFFFF;
     }
 }
 

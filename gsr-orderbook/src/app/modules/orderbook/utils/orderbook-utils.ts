@@ -1,5 +1,6 @@
-export function sortArray(array) {
+export function sortArray(array, property) {
   if (array) {
-    return array.sort((a, b) => a.localeCompare(b, undefined, { numeric: true }));
+    const comparison = (a, b) => a[property].localeCompare(b, 'en', { numeric: true });
+    return array.sort(comparison);
   }
 }
